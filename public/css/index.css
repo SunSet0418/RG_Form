@@ -1,0 +1,244 @@
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 200;
+    src: url('fonts/NanumBarunGothic.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('fonts/NanumBarunGothic.woff') format('woff'), url('fonts/NanumBarunGothic.ttf') format('truetype');
+}
+@media (max-width:88px) {
+  html {
+    font-size: 5px;
+  }
+}
+
+@media (min-width:89px) and (max-width:133px) {
+  html {
+    font-size: 6px;
+  }
+}
+
+@media (min-width:134px) and (max-width:195px) {
+  html {
+    font-size: 7px;
+  }
+}
+
+@media (min-width:196px) and (max-width:242px) {
+  html {
+    font-size: 8px;
+  }
+}
+@media (min-width:243px) and (max-width:299px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media (min-width:300px) and (max-width:360px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media (min-width:361px) and (max-width:450px) {
+    html {
+        font-size: 11px;
+    }
+}
+
+@media (min-width:451px) and (max-width:500px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (min-width:501px) and (max-width:561px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media (min-width:562px) and (max-width:632px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width:633px) and (max-width:667px) {
+    html {
+        font-size: 15px;
+      }
+}
+
+@media (min-width:668px) and (max-width:712px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (min-width:713px) and (max-width:752px) {
+    html {
+        font-size: 17px;
+    }
+}
+
+@media (min-width:753px) and (max-width:784px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media (min-width:785px) and (max-width:823px) {
+    html {
+        font-size: 19px;
+    }
+}
+
+@media (min-width:824px) and (max-width:861px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media (min-width:862px) and (max-width:900px) {
+    html {
+        font-size: 21px;
+    }
+}
+
+@media (min-width:901px) and (max-width:932px) {
+    html {
+        font-size: 22px;
+    }
+}
+
+@media (min-width:933px) and (max-width:962px) {
+    html {
+        font-size: 23px;
+    }
+}
+
+@media (min-width:998px) and (max-width:1030px) {
+    html {
+        font-size: 24px;
+    }
+}
+
+@media (min-width:1031px) and (max-width:1078px) {
+    html {
+      font-size: 25px;
+    }
+}
+
+@media (min-width:1100px) {
+  html {
+    font-size: 26px;
+  }
+}
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #c0c0c0;
+    font-family: Helvetica Neue, Helvetica, Arial;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
+.swiper-slide {
+    font-size: 18px;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 40px 60px;
+}
+
+.parallax-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+.swiper-slide .title {
+    font-size: 2.6rem;
+    font-weight: 200;
+     font-family: 'NanumBarunGothic',monospace;
+}
+
+.swiper-slide .maintitle {
+    font-size: 6.25rem;
+    font-family: 'NanumBarunGothic',monospace;
+}
+
+.swiper-slide .subtitle {
+    font-size: 1.4rem;
+    font-weight: 100;
+    font-family: 'NanumBarunGothic',monospace;
+}
+
+.swiper-slide .text {
+    font-size: 1.1rem;
+    max-width: auto;
+    line-height: 1.4;
+    font-family: 'NanumBarunGothic',serif;
+    text-align: center;
+}
+
+.sticker {
+    position: relative;
+    float: left;
+    width: 20%;
+    height: 20%;
+    margin: 2.5%;
+}
+
+.fb .sticker-img {
+  background-image: url(testfb.png);
+  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.yt .sticker-img {
+  background-image: url(testyt.png);
+  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.gh .sticker-img {
+  background-image: url(testgh.png);
+  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.bl .sticker-img {
+  background-image: url(testtw.png);
+  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

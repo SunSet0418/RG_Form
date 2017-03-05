@@ -9,6 +9,8 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.use(express.static('public'));
+
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -63,22 +65,30 @@ app.listen(8989, function (err) {
     }
 })
 
-app.get('/data', function (req, res) {
-    New.find({
+app.get('/', function (req, res) {
+    res.redirect('/register')
+})
 
-    }, function (err, result) {
-        if(err){
+app.get('/register', function (req, res) {
+    fs.readFile('questionnaire.html', 'utf-8', function (err, data) {
+        res.send(data)
+    })
+})
+
+app.get('/data', function (req, res) {
+    New.find({}, function (err, result) {
+        if (err) {
             console.log('/data Error!')
             throw err
         }
-        else if(result){
+        else if (result) {
             console.log(result)
             res.json(result)
         }
         else {
             res.json({
-                success : false,
-                message : "data not Found"
+                success: false,
+                message: "data not Found"
             })
         }
     })
@@ -87,12 +97,12 @@ app.get('/data', function (req, res) {
 app.post('/newpeople', function (req, res) {
     var people = new New({
         name: req.param('name'),
-        num : req.param('num'),
-        contact : req.param('contact'),
-        why : req.param('why'),
-        self : req.param('self'),
-        gua : req.param('gua'),
-        clas : req.param('clas')
+        num: req.param('num'),
+        contact: req.param('contact'),
+        why: req.param('why'),
+        self: req.param('self'),
+        gua: req.param('gua'),
+        clas: req.param('clas')
     })
 
     New.findOne({
