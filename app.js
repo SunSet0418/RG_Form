@@ -1,15 +1,16 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
+var fs = require('fs')
 var app = express();
 var schema = mongoose.Schema;
 
 app.use(bodyParser.urlencoded({
-    extended : true
+    extended: true
 }));
 
 mongoose.connect("mongodb://localhost/RG_New_People/", function (err) {
-    if(err){
+    if (err) {
         console.log('DB Error!')
         throw err
     }
@@ -19,67 +20,75 @@ mongoose.connect("mongodb://localhost/RG_New_People/", function (err) {
 })
 
 var NewSchema = new schema({
-    name : {
-        type : String
+    name: {
+        type: String
     },
-    phonenum : {
-        type : String
+    num: {
+        type: String
     },
-    department : {
-        type : String
+    contact: {
+        type: String
     },
-    email : {
-        type : String
+    why: {
+        type: String
+    },
+    self: {
+        type: String
+    },
+    gua: {
+        type: String
+    },
+    clas: {
+        type: String
     }
 })
 
 var New = mongoose.model('people', NewSchema);
 
 app.listen(8989, function (err) {
-    if(err){
+    if (err) {
         console.log('Server Error!')
         throw err
     }
     else {
-        console.log('Server Running At 8989!')
+        console.log('Server Running At 3000!')
     }
-})
-
-app.get('/', function (req, res) {
-    res.redirect('/newpeople')
 })
 
 app.post('/newpeople', function (req, res) {
     var people = new New({
-        name : req.param('name'),
-        phonenum : req.param('phonenum'),
-        department : req.param('department'),
-        email : req.param('email')
+        name: req.param('name'),
+        num : req.param('num'),
+        contact : req.param('contact'),
+        why : req.param('why'),
+        self : req.param('self'),
+        gua : req.param('gua'),
+        clas : req.param('clas')
     })
 
     New.findOne({
-        phonenum : req.param('phonenum')
+        phonenum: req.param('contact')
     }, function (err, result) {
-        if(err){
+        if (err) {
             console.log('/newpeople Error!')
             throw err
         }
-        else if(result){
+        else if (result) {
             res.json({
-                success : false,
-                message : "Already In Database"
+                success: false,
+                message: "Already In Database"
             })
         }
         else {
             people.save(function (err) {
-                if(err){
+                if (err) {
                     console.log('save Error!')
                     throw err
                 }
                 else {
                     res.json({
-                        success : true,
-                        message : "Save Success"
+                        success: true,
+                        message: "Save Success"
                     })
                 }
             })
