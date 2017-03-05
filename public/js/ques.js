@@ -6,7 +6,7 @@ $(document).ready(function() {
         var contact = $("#contact").val();
         var why = $("#why").val();
         var self = $("#self").val();
-        alert(gua + clas + name + num + contact + why + self)
+        alert("학과 : "+gua+"\n"+"희망 직군 : "+clas+"\n"+"이름 : "+name+"\n"+"학번 : "+num+"\n"+"연락처 : "+contact+"\n"+"지원동기 : "+why+"\n"+"자기소개 : "+self)
 
 
             var regdata = "name=" + name + "&num=" + num + "&contact=" + contact + "&why=" + why + "&self=" + self + "&gua=" + gua + "&clas=" + clas;
