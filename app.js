@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-mongoose.connect("mongodb://localhost/RG_New_People/", function (err) {
+mongoose.connect("mongodb://localhost:28001/RG_New_People/", function (err) {
     if (err) {
         console.log('DB Error!')
         throw err
