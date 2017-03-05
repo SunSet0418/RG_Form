@@ -59,8 +59,29 @@ app.listen(8989, function (err) {
         throw err
     }
     else {
-        console.log('Server Running At 3000!')
+        console.log('Server Running At 8989 Port!')
     }
+})
+
+app.get('/data', function (req, res) {
+    New.find({
+
+    }, function (err, result) {
+        if(err){
+            console.log('/data Error!')
+            throw err
+        }
+        else if(result){
+            console.log(result)
+            res.json(result)
+        }
+        else {
+            res.json({
+                success : false,
+                message : "data not Found"
+            })
+        }
+    })
 })
 
 app.post('/newpeople', function (req, res) {
