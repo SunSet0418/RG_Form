@@ -135,4 +135,8 @@ app.post('/newpeople', function (req, res) {
     })
 })
 
-
+app.get('/readjung', function (req, res) {
+   fs.readFile('read.html', 'utf-8', function (err, data) {
+       res.send(data)
+   })
+})
