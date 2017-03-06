@@ -1,12 +1,20 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
+var crypto = require('crypto')
+var session = require('express-session')
 var fs = require('fs')
 var app = express();
 var schema = mongoose.Schema;
 
 app.use(bodyParser.urlencoded({
     extended: true
+}));
+
+app.use(session({
+    secret: '@#@$MYSIGN#@$#$',
+    resave: false,
+    saveUninitialized: true
 }));
 
 app.use(express.static('public'));
@@ -70,6 +78,9 @@ app.get('/', function (req, res) {
 })
 
 app.get('/register', function (req, res) {
+    req.session.destroy(function () {
+        req.session;
+    });
     fs.readFile('questionnaire.html', 'utf-8', function (err, data) {
         res.send(data)
     })
@@ -136,7 +147,29 @@ app.post('/newpeople', function (req, res) {
 })
 
 app.get('/readjung', function (req, res) {
-   fs.readFile('read.html', 'utf-8', function (err, data) {
-       res.send(data)
-   })
+    if (req.session.login == undefined){
+        res.redirect('/password')
+    }
+    else {
+        fs.readFile('read.html', 'utf-8', function (err, data) {
+            res.send(data)
+        })
+    }
+})
+
+app.get('/password', function (req, res) {
+    fs.readFile('password.html', 'utf-8', function (err, data) {
+        res.send(data)
+    })
+})
+
+app.post('/password', function (req, res) {
+    var body = req.body;
+    if (body.password == 0927) {
+        req.session.login = 'adsf';
+        res.redirect('/readjung')
+    }
+    else {
+        res.redirect('/')
+    }
 })
