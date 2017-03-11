@@ -10,21 +10,31 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
-  <legend>신청자정보확인 ^,^</legend>
-  <div class="table-responsive">
-  <table class="table table-hover" id="table">
+<legend>신청자정보확인 ^,^</legend>
+<div class="table-responsive">
+    <table class="table table-hover" id="table">
+        <tr>
+            <th>이름</th>
+            <th>학번</th>
+            <th>학과</th>
+            <th>희망직군</th>
+            <th>연락처</th>
+            <th>지원동기</th>
+            <th>자기소개</th>
+        </tr>
+        <% data.forEach(function (item, index){ %></%>
     <tr>
-      <th>이름</th>
-      <th>학번</th>
-      <th>학과</th>
-      <th>희망직군</th>
-      <th>연락처</th>
-      <th>지원동기</th>
-      <th>자기소개</th>
+        <th><%= item.name %></th>
+        <th><%= item.num %></th>
+        <th><%= item.gua %></th>
+        <th><%= item.clas %></th>
+        <th><%= item.contact %></th>
+        <th><%= item.why %></th>
+        <th><%= item.self %></th>
     </tr>
-</table>
+    <% }); %>
+    </table>
 </div>
-    <script src="http://code.jquery.com/jquery-1.12.1.js"></script>
-    <script src="read.js"></script>
+<script src="http://code.jquery.com/jquery-1.12.1.js"></script>
 </body>
 </html>

@@ -18,6 +18,7 @@
   "homepage": "https://github.com/SunSet0418/RG_Form#readme",
   "dependencies": {
     "body-parser": "^1.17.0",
+    "ejs": "^2.5.6",
     "express": "^4.15.0",
     "express-session": "^1.15.1",
     "fs": "0.0.1-security",

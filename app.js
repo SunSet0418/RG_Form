@@ -4,6 +4,7 @@ var mongoose = require('mongoose')
 var crypto = require('crypto')
 var session = require('express-session')
 var fs = require('fs')
+var ejs = require('ejs')
 var app = express();
 var schema = mongoose.Schema;
 
@@ -27,7 +28,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-mongoose.connect("mongodb://localhost:28001/RG_New_People/", function (err) {
+mongoose.connect("mongodb://localhost/RG_New_People/", function (err) {
     if (err) {
         console.log('DB Error!')
         throw err
@@ -127,25 +128,6 @@ app.post('/newpeople', function (req, res) {
     })
 })
 
-app.post('/readjung', function (req, res) {
-    if(req.param("password")==0927){
-        New.find({
-        }, function (err, result) {
-            if(err){
-                console.log('/readjung Error!')
-                throw err
-            }
-            else if(result){
-                console.log('Result Send : '+result)
-                res.json(result)
-            }
-            else {
-                res.send('err')
-            }
-        })
-    }
-})
-
 app.get('/password', function (req, res) {
     fs.readFile('password.html', 'utf-8', function (err, data) {
         res.send(data)
@@ -159,6 +141,28 @@ app.post('/password', function (req, res) {
         res.redirect('/readjung')
     }
     else {
-        res.redirect('/')
+        res.redirect('/password')
     }
+})
+
+app.get('/readjung', function (req, res) {
+    New.find({}, function (err, result) {
+        if(err){
+            console.log('/dataget Error!')
+            throw err
+        }
+        else if(result){
+            if(req.session.login == undefined){
+                res.redirect('/')
+            }
+            else {
+                console.log(result)
+                fs.readFile('read.html', 'utf-8', function (err, data) {
+                    res.send(ejs.render(data, {
+                        data: result
+                    }));
+                })
+            }
+        }
+    })
 })
