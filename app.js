@@ -129,6 +129,9 @@ app.post('/newpeople', function (req, res) {
 })
 
 app.get('/password', function (req, res) {
+    req.session.destroy(function () {
+        req.session;
+    });
     fs.readFile('password.html', 'utf-8', function (err, data) {
         res.send(data)
     })
@@ -145,7 +148,7 @@ app.post('/password', function (req, res) {
     }
 })
 
-app.get('/readjung', function (req, res) {
+app.get('/readpeople', function (req, res) {
     New.find({}, function (err, result) {
         if(err){
             console.log('/dataget Error!')
@@ -153,7 +156,7 @@ app.get('/readjung', function (req, res) {
         }
         else if(result){
             if(req.session.login == undefined){
-                res.redirect('/')
+                res.redirect('/password')
             }
             else {
                 console.log(result)
