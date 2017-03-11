@@ -86,6 +86,8 @@ app.get('/register', function (req, res) {
     })
 })
 
+
+
 app.get('/data', function (req, res) {
     New.find({}, function (err, result) {
         if (err) {
@@ -104,6 +106,8 @@ app.get('/data', function (req, res) {
         }
     })
 })
+
+
 
 app.post('/newpeople', function (req, res) {
     var people = new New({
@@ -146,13 +150,21 @@ app.post('/newpeople', function (req, res) {
     })
 })
 
-app.get('/readjung', function (req, res) {
-    if (req.session.login == undefined){
-        res.redirect('/password')
-    }
-    else {
-        fs.readFile('read.html', 'utf-8', function (err, data) {
-            res.send(data)
+app.post('/readjung', function (req, res) {
+    if(req.param("password")==0927){
+        New.find({
+        }, function (err, result) {
+            if(err){
+                console.log('/readjung Error!')
+                throw err
+            }
+            else if(result){
+                console.log('Result Send : '+result)
+                res.json(result)
+            }
+            else {
+                res.send('err')
+            }
         })
     }
 })
