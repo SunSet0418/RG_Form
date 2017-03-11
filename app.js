@@ -143,7 +143,7 @@ app.post('/password', function (req, res) {
     hashing.update(body.password);
     var hashdata = hashing.digest('hex');
     console.log(hashdata)
-    if (hashdata == '1bec026ad7b921c876e44e89dd076cd90aab9665e0cd0b38512d137982acbd3b') {
+    if (hashdata == '928c19e0fd88c017add502e203b06e45bca51c2102b3e10f155231daaa83c627') {
         req.session.login = 'adsf';
         res.redirect('/readpeople')
     }
