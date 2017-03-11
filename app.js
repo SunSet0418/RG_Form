@@ -141,7 +141,7 @@ app.post('/password', function (req, res) {
     var body = req.body;
     if (body.password == 0927) {
         req.session.login = 'adsf';
-        res.redirect('/readjung')
+        res.redirect('/readpeople')
     }
     else {
         res.redirect('/password')
@@ -168,4 +168,11 @@ app.get('/readpeople', function (req, res) {
             }
         }
     })
+})
+
+app.get('/asdf', function (req, res) {
+    var body = req.body;
+    var hashing = crypto.createHash('sha256');
+    hashing.update(body.password);
+    var hashdata = hashing.digest('hex');
 })
