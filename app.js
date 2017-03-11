@@ -86,29 +86,6 @@ app.get('/register', function (req, res) {
     })
 })
 
-
-
-app.get('/data', function (req, res) {
-    New.find({}, function (err, result) {
-        if (err) {
-            console.log('/data Error!')
-            throw err
-        }
-        else if (result) {
-            console.log(result)
-            res.json(result)
-        }
-        else {
-            res.json({
-                success: false,
-                message: "data not Found"
-            })
-        }
-    })
-})
-
-
-
 app.post('/newpeople', function (req, res) {
     var people = new New({
         name: req.param('name'),
