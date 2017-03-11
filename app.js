@@ -139,7 +139,11 @@ app.get('/password', function (req, res) {
 
 app.post('/password', function (req, res) {
     var body = req.body;
-    if (body.password == 0927) {
+    var hashing = crypto.createHash('sha256');
+    hashing.update(body.password);
+    var hashdata = hashing.digest('hex');
+    console.log(hashdata)
+    if (hashdata == '1bec026ad7b921c876e44e89dd076cd90aab9665e0cd0b38512d137982acbd3b') {
         req.session.login = 'adsf';
         res.redirect('/readpeople')
     }
