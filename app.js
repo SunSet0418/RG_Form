@@ -174,9 +174,3 @@ app.get('/readpeople', function (req, res) {
     })
 })
 
-app.get('/asdf', function (req, res) {
-    var body = req.body;
-    var hashing = crypto.createHash('sha256');
-    hashing.update(body.password);
-    var hashdata = hashing.digest('hex');
-})
