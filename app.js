@@ -99,7 +99,7 @@ app.post('/newpeople', function (req, res) {
     })
 
     New.findOne({
-        phonenum: req.param('contact')
+        num : req.param('num')
     }, function (err, result) {
         if (err) {
             console.log('/newpeople Error!')
@@ -173,4 +173,3 @@ app.get('/readpeople', function (req, res) {
         }
     })
 })
-
