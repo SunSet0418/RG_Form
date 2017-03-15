@@ -13,7 +13,7 @@ $(document).ready(function() {
             var regdata = "name=" + name + "&num=" + num + "&contact=" + contact + "&why=" + why + "&self=" + self + "&gua=" + gua + "&clas=" + clas;
             $.ajax({        
                 type: "POST",
-                url: "http://soylatte.kr:8989/newpeople",
+                url: "http://hansung.info:8989/newpeople",
                     data: regdata,
                     success: function(data)     {        
                     if (data.success == true) {
